@@ -1059,7 +1059,9 @@ body {
 .memory-video {
   display: block;
   width: 100%;
-  max-height: min(52vh, 440px);
+  height: min(52vh, 440px);
+  aspect-ratio: 16 / 9;
+  border: 0;
   border-radius: var(--radius-sm);
   background: #08070d;
 }
