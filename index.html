@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="A magical, interactive birthday celebration website with celebratory music, animated candle cake, heartfelt memories, and starry sky wishes.">
+  <meta name="theme-color" content="#ff758c">
+  <title>Happy Birthday Payal meri jaan ✨ A Special Surprise</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,800;1,400&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body data-theme="rosegold">
+
+  <!-- Ambient Animated Starry & Particle Canvas -->
+  <canvas id="ambient-canvas"></canvas>
+
+  <!-- Ambient Glow Orbs -->
+  <div class="glow-orb glow-orb-1" aria-hidden="true"></div>
+  <div class="glow-orb glow-orb-2" aria-hidden="true"></div>
+
+  <!-- Floating Audio & Customization Controls -->
+  <aside class="floating-controls" aria-label="Page controls">
+    <button id="music-toggle-btn" class="control-btn" title="Toggle Birthday Melody"
+      aria-label="Toggle Birthday Melody">
+      🎵
+    </button>
+    <button id="settings-btn" class="control-btn" title="Personalize Website" aria-label="Personalize Website">
+      ⚙️
+    </button>
+  </aside>
+
+  <!-- =========================================================================
+       STAGE 0: Sealed Vintage Envelope Gate
+       ========================================================================= -->
+  <section id="envelope-gate" class="envelope-gate" aria-label="Surprise Envelope">
+    <div id="envelope-wrapper" class="envelope-wrapper" role="button" tabindex="0"
+      aria-label="Open your birthday envelope">
+      <div class="vintage-envelope">
+        <div class="envelope-flap"></div>
+        <div class="envelope-pocket"></div>
+        <div class="wax-seal" aria-hidden="true">💖</div>
+      </div>
+      <div class="envelope-prompt">
+        <span>A Special Surprise Has Arrived For You</span>
+        <span class="envelope-hint">✨ Tap the envelope to unseal with love ✨</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       MAIN CELEBRATION EXPERIENCE (Zero-Scroll Activity-by-Activity Flow)
+       ========================================================================= -->
+  <main id="main-container" class="main-container">
+
+    <!-- STAGE 1: Welcome & Birthday Hero -->
+    <section class="activity-stage active-stage" id="stage-1" data-stage="1" aria-label="Activity 1: Birthday Welcome">
+      <div class="stage-card hero-card">
+        <h1 class="hero-title">
+          Happy Birthday, <span class="recipient-name">Payal</span>! 🎉
+        </h1>
+        <p class="hero-subtitle">
+          Today the universe celebrates the day you came into this world. We have prepared special surprises just for
+          you. Explore each activity one by one!
+        </p>
+        <div class="stage-action-row">
+          <button class="action-btn next-activity-btn pulse-glow" data-next="2">
+            Open First Surprise 🎈
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- STAGE 2: Interactive 4-Balloon Surprise Section -->
+    <section class="activity-stage" id="stage-2" data-stage="2" aria-label="Activity 2: Pop The Mystery Balloons">
+      <div class="stage-card balloons-card">
+        <div class="balloon-header">
+          <div class="badge-tag">
+            <span>🎈 Surprise #1 • Interactive Balloon Pop</span>
+          </div>
+          <h2 class="section-title">Pop The Balloons In Order!</h2>
+          <p class="section-subtitle">Click each balloon from 1 to 4 to reveal a special secret message for you...</p>
+        </div>
+
+        <div class="balloons-cluster" id="balloons-cluster">
+          <!-- Balloon 1 -->
+          <div class="balloon-item" data-index="1" data-word="YOU" role="button" tabindex="0"
+            aria-label="Pop Balloon 1">
+            <div class="balloon-body balloon-pink">
+              <div class="balloon-shine"></div>
+              <span class="balloon-number">1</span>
+            </div>
+            <div class="balloon-knot"></div>
+            <div class="balloon-string"></div>
+          </div>
+
+          <!-- Balloon 2 -->
+          <div class="balloon-item" data-index="2" data-word="ARE" role="button" tabindex="0"
+            aria-label="Pop Balloon 2">
+            <div class="balloon-body balloon-gold">
+              <div class="balloon-shine"></div>
+              <span class="balloon-number">2</span>
+            </div>
+            <div class="balloon-knot"></div>
+            <div class="balloon-string"></div>
+          </div>
+
+          <!-- Balloon 3 -->
+          <div class="balloon-item" data-index="3" data-word="SO" role="button" tabindex="0" aria-label="Pop Balloon 3">
+            <div class="balloon-body balloon-lavender">
+              <div class="balloon-shine"></div>
+              <span class="balloon-number">3</span>
+            </div>
+            <div class="balloon-knot"></div>
+            <div class="balloon-string"></div>
+          </div>
+
+          <!-- Balloon 4 -->
+          <div class="balloon-item" data-index="4" data-word="SPECIAL" role="button" tabindex="0"
+            aria-label="Pop Balloon 4">
+            <div class="balloon-body balloon-cyan">
+              <div class="balloon-shine"></div>
+              <span class="balloon-number">4</span>
+            </div>
+            <div class="balloon-knot"></div>
+            <div class="balloon-string"></div>
+          </div>
+        </div>
+
+        <!-- Revealed Mystery Word Slots -->
+        <div class="revealed-words-container" id="revealed-words-container">
+          <div class="word-slot" id="slot-1" aria-label="First word slot">?</div>
+          <div class="word-slot" id="slot-2" aria-label="Second word slot">?</div>
+          <div class="word-slot" id="slot-3" aria-label="Third word slot">?</div>
+          <div class="word-slot" id="slot-4" aria-label="Fourth word slot">?</div>
+        </div>
+
+        <!-- Grand Special Message Banner -->
+        <div class="special-message-banner" id="special-message-banner">
+          <div class="sparkle-icon" aria-hidden="true">✨ 💖 ✨</div>
+          <h3 class="special-banner-title">YOU ARE SO SPECIAL!</h3>
+          <p class="special-banner-desc">Never forget how incredible, cherished, and radiant you are. The world is
+            brighter, happier, and so much more wonderful simply because you are in it! 🌟</p>
+          <div class="stage-action-row" style="margin-top: 16px;">
+            <button id="replay-balloons-btn" class="secondary-btn">🎈 Inflate Again</button>
+            <button class="action-btn next-activity-btn pulse-glow" data-next="3">
+              Next Surprise: Birthday Cake 🎂
+            </button>
+          </div>
+        </div>
+
+        <div class="stage-action-row stage-skip-row" id="balloon-skip-row">
+          <button class="stage-skip-btn next-activity-btn" data-next="3">
+            Continue to Cake 🎂 ›
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- STAGE 3: Interactive Birthday Cake & Candles -->
+    <section class="activity-stage" id="stage-3" data-stage="3" aria-label="Activity 3: Birthday Cake and Candles">
+      <div class="stage-card cake-card">
+        <div class="badge-tag">
+          <span>🎂 Surprise #2 • Birthday Cake</span>
+        </div>
+        <h2 class="section-title">Make a Wish & Blow the Candles!</h2>
+
+        <div id="cake-container" class="cake-container" title="Click to blow out candles!">
+          <!-- Candles Row -->
+          <div class="candles-row">
+            <div class="candle">
+              <div class="candle-wick"></div>
+              <div class="candle-flame"></div>
+              <div class="candle-smoke"></div>
+            </div>
+            <div class="candle">
+              <div class="candle-wick"></div>
+              <div class="candle-flame"></div>
+              <div class="candle-smoke"></div>
+            </div>
+            <div class="candle">
+              <div class="candle-wick"></div>
+              <div class="candle-flame"></div>
+              <div class="candle-smoke"></div>
+            </div>
+          </div>
+
+          <!-- Tiered Cake Layers -->
+          <div class="cake-tier cake-tier-top">
+            <div class="cake-frosting-drips"></div>
+          </div>
+          <div class="cake-tier cake-tier-bottom">
+            <div class="cake-frosting-drips"></div>
+          </div>
+          <div class="cake-plate"></div>
+        </div>
+
+        <p id="cake-instructions" class="cake-instructions">
+          <span>🎂 Click the cake or button below to blow out your candles!</span>
+        </p>
+
+        <div class="stage-action-row">
+          <button id="blow-candles-btn" class="action-btn">
+            ✨ Blow Out Candles
+          </button>
+          <button id="cake-next-btn" class="action-btn next-activity-btn" data-next="4">
+            Next Surprise: A Special Letter 💌
+          </button>
+        </div>
+
+        <div id="wish-granted-badge" class="wish-granted-badge">
+          ✨ Wish Made! May all your dreams come true! ✨
+        </div>
+      </div>
+    </section>
+
+    <!-- STAGE 4: Heartfelt Handwritten Letter Card -->
+    <section class="activity-stage" id="stage-4" data-stage="4" aria-label="Activity 4: Heartfelt Birthday Letter">
+      <div class="stage-card letter-card">
+        <div class="badge-tag">
+          <span>💌 Surprise #3 • Words From The Heart</span>
+        </div>
+        <h2 class="letter-header">To the Birthday Star,</h2>
+        <div id="letter-body-text" class="letter-body">
+         Hnjii
+         To madam ji ka birthday hai or hum chahte h aap hamesha khush rahe ye hum bhgwan se dua karte h ki aapki zindagi me hamesha khushi rahe or aapke sapne hamesha pure ho. Aapki muskan hamesha bani rahe or aap aise hi mujhse pyaar karti rahe. I LOVE YOU MERI JAAAAANN ❤️
+         Thank you meri life mein aane ke liye or meri zindagi ko itna khubsurat banene ke liye.
+
+         I love you meri jaan ❤️
+         I love you meri Shona ❤️
+         I love you meri cutiepie ❤️
+         I love you meri babu ❤️
+         I love you meri bachaa ❤️
+         I love you sooooooooooooo sooooooooooooooooooo soooooooooooooooooooooooooooooooo much ❤️❤️🫶
+         
+         Happy Birthday meri jaan ❤️
+
+        </div>
+        <div id="letter-signature-text" class="letter-signature">
+          With all my love & warmest wishes 💖
+        </div>
+        <div class="stage-action-row" style="margin-top: 20px;">
+          <button class="action-btn next-activity-btn pulse-glow" data-next="5">
+            Next Surprise: Sweet Memories 📷
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- STAGE 5: Video Memory Showcase -->
+    <section class="activity-stage" id="stage-5" data-stage="5" aria-label="Activity 5: Our Video Memories">
+      <div class="stage-card memories-card">
+        <div class="badge-tag">
+          <span>🎬 Surprise #4 • Our Story</span>
+        </div>
+        <h2 class="section-title">Our Special Moments</h2>
+        <p class="section-subtitle">Press play and relive our favorite memories together</p>
+
+        <div class="memory-video-wrapper">
+          <video class="memory-video" controls preload="metadata" playsinline>
+            <source src="assets/us-video.mp4" type="video/mp4">
+            Your browser does not support the video player.
+          </video>
+        </div>
+
+        <div class="stage-action-row" style="margin-top: 16px;">
+          <button class="action-btn next-activity-btn pulse-glow" data-next="6">
+            See Birthday Finale 🎆
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- STAGE 6: Grand Birthday Finale & Celebration -->
+    <section class="activity-stage" id="stage-6" data-stage="6" aria-label="Activity 6: Grand Birthday Finale">
+      <div class="stage-card finale-card">
+        <div class="badge-tag">
+          <span>🎆 Grand Finale • Celebration Day</span>
+        </div>
+        <div class="finale-sparkle-icon" aria-hidden="true">🎉 🎂 💖 🌟</div>
+        <h2 class="hero-title" style="font-size: clamp(2.2rem, 5vw, 3.8rem);">
+          Happy Birthday, <span class="recipient-name">Payal</span>!
+        </h2>
+        <p class="hero-subtitle">
+          May your year ahead overflow with endless laughter, boundless peace, heartwarming triumphs, and dreams come
+          true!
+        </p>
+
+        <div class="finale-action-group">
+          <button id="finale-confetti-btn" class="action-btn pulse-glow">
+            🎊 Shower With Confetti!
+          </button>
+          <button class="secondary-btn next-activity-btn" data-next="1">
+            🔄 Relive The Journey From Start
+          </button>
+        </div>
+
+        <footer class="celebration-footer" style="margin-top: 24px; padding-top: 16px;">
+          <p>Crafted with <span class="heart">💖</span> just for <span class="recipient-name">Payal</span> on her
+            special day</p>
+          <p style="margin-top: 6px; font-size: 0.85rem; opacity: 0.7;">Click ⚙️ in top right anytime to customize names
+            & theme</p>
+        </footer>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         PERSISTENT BOTTOM JOURNEY NAVIGATION BAR
+         ========================================================================= -->
+    <nav id="journey-nav" class="journey-nav" aria-label="Surprise journey navigation">
+      <button id="prev-stage-btn" class="nav-arrow-btn" aria-label="Previous surprise" disabled>
+        <span class="nav-arrow" aria-hidden="true">‹</span>
+        <span class="nav-label">Back</span>
+      </button>
+
+      <div class="stage-tracker">
+        <div class="stage-counter-badge" id="stage-counter">Surprise 1 of 7</div>
+        <div class="stage-dots" id="stage-dots">
+          <button class="stage-dot active" data-stage-target="1" title="Surprise 1: Birthday Welcome"
+            aria-label="Surprise 1: Birthday Welcome"><span class="dot-icon">🌟</span></button>
+          <button class="stage-dot" data-stage-target="2" title="Surprise 2: Pop Balloons"
+            aria-label="Surprise 2: Pop Balloons"><span class="dot-icon">🎈</span></button>
+          <button class="stage-dot" data-stage-target="3" title="Surprise 3: Birthday Cake"
+            aria-label="Surprise 3: Birthday Cake"><span class="dot-icon">🎂</span></button>
+          <button class="stage-dot" data-stage-target="4" title="Surprise 4: Heartfelt Letter"
+            aria-label="Surprise 4: Heartfelt Letter"><span class="dot-icon">💌</span></button>
+          <button class="stage-dot" data-stage-target="5" title="Surprise 5: Sweet Memories"
+            aria-label="Surprise 5: Sweet Memories"><span class="dot-icon">📷</span></button>
+          <button class="stage-dot" data-stage-target="6" title="Surprise 6: Grand Finale"
+            aria-label="Surprise 6: Grand Finale"><span class="dot-icon">🎆</span></button>
+        </div>
+      </div>
+
+      <button id="next-stage-btn" class="nav-arrow-btn nav-arrow-btn-primary" aria-label="Next surprise">
+        <span class="nav-label">Next</span>
+        <span class="nav-arrow" aria-hidden="true">›</span>
+      </button>
+    </nav>
+
+  </main>
+
+  <!-- =========================================================================
+       LIVE CUSTOMIZER MODAL
+       ========================================================================= -->
+  <div id="settings-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="modal-title" class="modal-title">Customize Surprise ✨</h3>
+        <button id="modal-close-btn" class="modal-close-btn" aria-label="Close modal">✕</button>
+      </div>
+
+      <div class="form-group">
+        <label for="input-recipient-name" class="form-label">Her Name / Nickname</label>
+        <input type="text" id="input-recipient-name" class="form-input" value="Payal"
+          placeholder="e.g. Payal, Emma, My Love">
+      </div>
+
+      <div class="form-group">
+        <label for="input-sender-name" class="form-label">Your Signature / From</label>
+        <input type="text" id="input-sender-name" class="form-input" value="With all my love & warmest wishes 💖"
+          placeholder="e.g. With love from Alex">
+      </div>
+
+      <div class="form-group">
+        <label for="input-letter-body" class="form-label">Heartfelt Letter Message</label>
+        <textarea id="input-letter-body" class="form-input" rows="5"
+          placeholder="Write your custom birthday letter...">Another year older, wiser, and even more effortlessly wonderful.
+
+Thank you for bringing so much warmth, laughter, and light into the lives of everyone lucky enough to know you. On this special day, take a moment to look back at how far you've come and look forward with excitement to all the grand adventures that await.
+
+May every dream you hold close to your heart find its way into reality, and may your days always be filled with boundless joy, peace, and sweet memories.</textarea>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Color Theme Aesthetic</label>
+        <div class="theme-options">
+          <button type="button" class="theme-opt-btn active" data-theme="rosegold">
+            <span class="theme-dot dot-rosegold"></span> Rose Gold
+          </button>
+          <button type="button" class="theme-opt-btn" data-theme="midnight">
+            <span class="theme-dot dot-midnight"></span> Midnight Starlight
+          </button>
+          <button type="button" class="theme-opt-btn" data-theme="lavender">
+            <span class="theme-dot dot-lavender"></span> Lavender Dream
+          </button>
+          <button type="button" class="theme-opt-btn" data-theme="sunset">
+            <span class="theme-dot dot-sunset"></span> Sunset Glow
+          </button>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button id="copy-link-btn" type="button" class="secondary-btn">🔗 Copy Shareable Link</button>
+        <button id="save-settings-btn" type="button" class="action-btn">Save & Apply</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
